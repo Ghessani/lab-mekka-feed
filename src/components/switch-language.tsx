@@ -1,9 +1,17 @@
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 function LanguageSwitcher() {
   return (
-    <div className='w-full  p-5  flex gap-5 px-10' dir='ltr'>
+    <motion.div
+      className='w-full  p-5  flex gap-5 px-10'
+      dir='ltr'
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      exit={{ opacity: 0, y: 100 }}
+    >
       <Link href={'/ar'} locale='ar'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -67,7 +75,7 @@ function LanguageSwitcher() {
           </g>
         </svg>
       </Link>
-    </div>
+    </motion.div>
   );
 }
 

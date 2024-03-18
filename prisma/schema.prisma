@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model feedback {
+  id        Int      @id @default(autoincrement())
+  email     String? 
+  phone     String?
+  message   String?
+  Language  LanguageType
+  overallRating reactionType
+  recp     reactionType?
+  emrg     reactionType?
+  bill     reactionType?
+  cash     reactionType?
+  care     reactionType?
+  labo     reactionType?
+  oprt     reactionType?
+  radl     reactionType?
+  createdAt DateTime @default(now())
+}
+ 
+ 
+ 
+
+ 
+enum reactionType {
+  ABSOLUTELY_DISATISFIED
+  DISATISFIED
+  OK
+  SATISFIED
+  EXTREMELY_SATISFIED
+}
+
+enum LanguageType {
+  EN
+  FR
+  AR
+}
+
