@@ -26,7 +26,7 @@ export default function Home({
 }: {
   params: { locale: string };
 }) {
-  const { current, setCurrent, Timeline, clearAll } = useSurvey();
+  const { current, language, Timeline, clearAll } = useSurvey();
   const [progress, setProgress] = useState(20);
 
   useEffect(() => {
@@ -38,13 +38,165 @@ export default function Home({
   }, [current, Timeline]);
   return (
     <AnimatePresence mode='wait'>
-      <main className='flex w-screen h-screen flex-col overflow-hidden'>
+      <main
+        className='flex w-screen h-screen flex-col overflow-hidden'
+        dir={
+          language === 'AR'
+            ? 'rtl'
+            : language === 'EN'
+            ? 'ltr'
+            : language === 'FR'
+            ? 'ltr'
+            : 'ltr'
+        }
+      >
         <header>
           <Progress progress={progress} />
         </header>
 
-        <section className='flex-grow flex justify-center items-center'>
+        <section className='flex-grow flex flex-col gap-5 justify-start items-center'>
+          <motion.h1
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            exit={{ opacity: 0 }}
+            className='text-2xl p-3 w-full'
+          >
+            {Timeline[current] === 'start' && (
+              <>
+                {language === 'EN'
+                  ? 'what is your overall rating?'
+                  : language === 'FR'
+                  ? 'Quelle est votre note globale?'
+                  : language === 'AR'
+                  ? 'ما هو تقييمك العام؟'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'chousingservices' && (
+              <>
+                {language === 'EN'
+                  ? 'Choosing Services'
+                  : language === 'FR'
+                  ? 'Choisir des services'
+                  : language === 'AR'
+                  ? 'اختيار الخدمات'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'comment' && (
+              <>
+                {language === 'EN'
+                  ? 'Comment'
+                  : language === 'FR'
+                  ? 'Commentaire'
+                  : language === 'AR'
+                  ? 'تعليق'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'contact' && (
+              <>
+                {language === 'EN'
+                  ? 'Contact'
+                  : language === 'FR'
+                  ? 'Contact'
+                  : language === 'AR'
+                  ? 'اتصل'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'bill' && (
+              <>
+                {language === 'EN'
+                  ? 'Billing'
+                  : language === 'FR'
+                  ? 'Facturation'
+                  : language === 'AR'
+                  ? 'فواتير'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'care' && (
+              <>
+                {language === 'EN'
+                  ? 'Care'
+                  : language === 'FR'
+                  ? 'Soins'
+                  : language === 'AR'
+                  ? 'رعاية'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'cash' && (
+              <>
+                {language === 'EN'
+                  ? 'Cash'
+                  : language === 'FR'
+                  ? 'Argent'
+                  : language === 'AR'
+                  ? 'نقد'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'emrg' && (
+              <>
+                {language === 'EN'
+                  ? 'Emergency'
+                  : language === 'FR'
+                  ? 'Urgence'
+                  : language === 'AR'
+                  ? 'طوارئ'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'labo' && (
+              <>
+                {language === 'EN'
+                  ? 'Laboratory'
+                  : language === 'FR'
+                  ? 'Laboratoire'
+                  : language === 'AR'
+                  ? 'مختبر'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'oprt' && (
+              <>
+                {language === 'EN'
+                  ? 'Operation'
+                  : language === 'FR'
+                  ? 'Opération'
+                  : language === 'AR'
+                  ? 'عملية'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'radl' && (
+              <>
+                {language === 'EN'
+                  ? 'Radiology'
+                  : language === 'FR'
+                  ? 'Radiologie'
+                  : language === 'AR'
+                  ? 'الأشعة'
+                  : ''}
+              </>
+            )}
+            {Timeline[current] === 'recp' && (
+              <>
+                {language === 'EN'
+                  ? 'Reception'
+                  : language === 'FR'
+                  ? 'Réception'
+                  : language === 'AR'
+                  ? 'استقبال'
+                  : ''}
+              </>
+            )}
+          </motion.h1>
           {Timeline[current] === 'start' && <Start />}
+
           {Timeline[current] === 'chousingservices' && <ChoosingSteps />}
           {Timeline[current] === 'comment' && <Comment />}
           {Timeline[current] === 'contact' && <Contact />}
@@ -103,29 +255,8 @@ export default function Home({
   );
 }
 
-const Question = {
-  start:
-    "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  'choosing-service':
-    "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  choosingaservice: 'choose up to 3 services to rate your experience today',
-  comment:
-    "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  contact:
-    "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  thanks:
-    "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  bill: "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  cash: "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  care: "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  labo: "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  oprt: "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  radl: "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  emrg: "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-  recp: "Dans quelle mesure êtes-vous satisfait de votre expérience aujourd'hui?",
-};
-
 function Progress({ progress }: { progress: number }) {
+  const { language } = useSurvey();
   return (
     <motion.section
       className='flex p-4 gap-3 items-center border mb-2'
@@ -134,6 +265,19 @@ function Progress({ progress }: { progress: number }) {
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0, y: -100 }}
     >
+      <div
+        className={
+          language === 'EN' || language === 'FR'
+            ? ' p-1 border-r pr-2'
+            : ' p-1 border-l pl-2'
+        }
+      >
+        {language === 'EN'
+          ? 'English'
+          : language === 'FR'
+          ? 'Français'
+          : 'اَلْعَرَبِيَّةُ'}
+      </div>
       <div className=' flex justify-between gap-2'>
         <p>Progress</p>
         <div>{progress}%</div>

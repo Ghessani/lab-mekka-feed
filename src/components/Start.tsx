@@ -15,7 +15,7 @@ function Start() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 0.4 }}
       exit={{ opacity: 0 }}
-      className='flex gap-10 items-center '
+      className='flex my-auto gap-10 items-center  '
     >
       <motion.div
         className='flex flex-col gap-4'

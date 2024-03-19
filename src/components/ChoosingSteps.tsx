@@ -71,9 +71,7 @@ function ChoosingSteps() {
     setCurrent(2);
   };
   return (
-    <div className='text-center'>
-      <h1 className='text-2xl'>Choose the service</h1>
-      <p className='pb-6'>you want to evaluate</p>
+    <div className='text-center my-auto'>
       {checkedServices > 3 && (
         <motion.p
           initial={{ opacity: 0, scale: 0.8 }}

@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useSurvey } from '@/lib/useSurvey';
 
 function LanguageSwitcher() {
+  const { setLang } = useSurvey();
   return (
     <motion.div
       className='w-full  p-5  flex gap-5 px-10'
@@ -12,7 +14,7 @@ function LanguageSwitcher() {
       transition={{ duration: 0.5 }}
       exit={{ opacity: 0, y: 100 }}
     >
-      <Link href={'/ar'} locale='ar'>
+      <button type='button' onClick={() => setLang('AR')}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='90'
@@ -27,15 +29,15 @@ function LanguageSwitcher() {
             d='m45000 17308 7460 22960-19531-14190h24142L37540 40268z'
           />
         </svg>
-      </Link>
-      <Link href={'/fr'} locale='fr'>
+      </button>
+      <button onClick={() => setLang('FR')}>
         <svg xmlns='http://www.w3.org/2000/svg' width='90' height='60'>
           <rect width='90' height='60' fill='#ED2939' />
           <rect width='60' height='60' fill='#fff' />
           <rect width='30' height='60' fill='#002395' />
         </svg>
-      </Link>
-      <Link href={'/en'} locale='en'>
+      </button>
+      <button type='button' onClick={() => setLang('EN')}>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           xmlnsXlink='http://www.w3.org/1999/xlink'
@@ -74,7 +76,7 @@ function LanguageSwitcher() {
             <use xlinkHref='#s5' x='2470' />
           </g>
         </svg>
-      </Link>
+      </button>
     </motion.div>
   );
 }

@@ -22,6 +22,7 @@ type LanguageType = 'EN' | 'FR' | 'AR';
 
 interface Store {
   language: 'AR' | 'FR' | 'EN';
+  setLang: (lang: 'AR' | 'FR' | 'EN') => void;
   query: {
     email?: string;
     phone?: string;
@@ -52,7 +53,6 @@ interface Store {
     oprt?: reactionType;
     radl?: reactionType;
   }) => void;
-  setLang: (lang: 'AR' | 'FR' | 'EN') => void;
   service: {
     recp: false;
     emrg: false;
@@ -108,6 +108,7 @@ export const useSurvey = create(
   persist<Store>(
     (set) => ({
       language: 'EN',
+      setLang: (language: 'AR' | 'FR' | 'EN') => set({ language }),
       service: {
         recp: false,
         emrg: false,
@@ -127,7 +128,7 @@ export const useSurvey = create(
       setCurrent: (current) => set({ current }),
       clearAll: () =>
         set({
-          language: 'EN',
+          language: 'FR',
           service: {
             recp: false,
             emrg: false,
@@ -152,7 +153,6 @@ export const useSurvey = create(
           };
         });
       },
-      setLang: (language: 'AR' | 'FR' | 'EN') => set({ language }),
     }),
     {
       name: 'survey-storage',
