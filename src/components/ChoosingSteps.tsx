@@ -65,6 +65,7 @@ function ChoosingSteps() {
       'start',
       'chousingservices',
       ...chosenServices,
+      'contact',
       'comment',
       'thankyou',
     ]);

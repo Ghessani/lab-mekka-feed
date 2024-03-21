@@ -25,7 +25,7 @@ function LanguageSwitcher() {
           <path
             fill='none'
             stroke='#006233'
-            stroke-width='1426'
+            strokeWidth='1426'
             d='m45000 17308 7460 22960-19531-14190h24142L37540 40268z'
           />
         </svg>
@@ -49,7 +49,7 @@ function LanguageSwitcher() {
           <path
             d='M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0'
             stroke='#fff'
-            stroke-width='300'
+            strokeWidth='300'
           />
           <rect width='2964' height='2100' fill='#3c3b6e' />
           <g fill='#fff'>

@@ -5,9 +5,9 @@ export function Sad(props: SVGProps<SVGSVGElement>) {
       <g
         fill='none'
         stroke='currentColor'
-        stroke-linecap='round'
-        stroke-linejoin='round'
-        stroke-width='1.5'
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        strokeWidth='1.5'
       >
         <path
           fill='currentColor'

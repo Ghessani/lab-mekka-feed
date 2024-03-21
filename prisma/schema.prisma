@@ -30,7 +30,7 @@ model feedback {
   radl     reactionType?
   createdAt DateTime @default(now())
 }
- 
+
  
  
 

@@ -2,7 +2,8 @@ import { useSurvey } from '@/lib/useSurvey';
 import React from 'react';
 
 function Comment() {
-  const { setCurrent, current, language } = useSurvey();
+  const { setCurrent, current, saveFeedBack, setQuerry, query, language } =
+    useSurvey();
   return (
     <section className='flex gap-4 text-xl flex-col'>
       <textarea
@@ -14,10 +15,16 @@ function Comment() {
             ? 'Please leave your comment here'
             : 'الرجاء ترك تعليقك هنا'
         }
+        onChange={(e) => {
+          setQuerry({
+            ...query,
+            message: e.target.value,
+          });
+        }}
       />
       <button
         className=' bg-blue-500 shadow-lg rounded-md text-white  px-6 py-2'
-        onClick={() => setCurrent(current + 1)}
+        onClick={() => saveFeedBack()}
       >
         Next
       </button>

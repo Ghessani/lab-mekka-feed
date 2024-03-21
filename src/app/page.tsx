@@ -20,6 +20,7 @@ import Labo from '@/components/services/Labo';
 import Recp from '@/components/services/Recp';
 import Radl from '@/components/services/Radl';
 import Oprt from '@/components/services/Oprt';
+import ThankYou from '@/components/ThankYou';
 
 export default function Home({
   params: { locale },
@@ -33,7 +34,7 @@ export default function Home({
     if (current === 0) {
       setProgress(0);
     } else {
-      setProgress(Math.floor((current / Timeline.length) * 100));
+      setProgress(Math.floor((current / (Timeline.length - 1)) * 100));
     }
   }, [current, Timeline]);
   return (
@@ -196,7 +197,6 @@ export default function Home({
             )}
           </motion.h1>
           {Timeline[current] === 'start' && <Start />}
-
           {Timeline[current] === 'chousingservices' && <ChoosingSteps />}
           {Timeline[current] === 'comment' && <Comment />}
           {Timeline[current] === 'contact' && <Contact />}
@@ -209,41 +209,19 @@ export default function Home({
           {Timeline[current] === 'radl' && <Radl />}
           {Timeline[current] === 'recp' && <Recp />}
 
-          {Timeline[current] === 'thankyou' && (
-            <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className='flex flex-col items-center'
-            >
-              <motion.p
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className='text-4xl text-gray-700'
-              >
-                Thank you for your feedback
-              </motion.p>
-              <motion.p
-                initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className='text-2xl text-gray-700'
-              >
-                We are happy to serve you
-              </motion.p>
-            </motion.div>
-          )}
+          {Timeline[current] === 'thankyou' && <ThankYou />}
         </section>
         <footer>
           {Timeline[current] === 'start' ? (
             <LanguageSwitcher />
+          ) : Timeline[current] === 'thankyou' ? (
+            ''
           ) : (
             <motion.button
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className=' bg-gray-500 text-white rounded-md p-2 mx-10 my-6'
+              className=' bg-red-400 hover:bg-red-500 text-white rounded-md p-2 mx-10 my-6'
               onClick={() => clearAll()}
             >
               Restart the Survey
@@ -285,7 +263,9 @@ function Progress({ progress }: { progress: number }) {
 
       <div className=' flex-grow h-4  rounded-md bg-gray-200  transition-all duration-500 ease-in-out'>
         <div
-          className='h-full bg-blue-500 rounded-md transition-all duration-500 ease-in-out'
+          className={`h-full ${
+            progress > 80 ? 'bg-green-500' : 'bg-blue-500'
+          } rounded-md transition-all duration-500 ease-in-out`}
           style={{ width: `${progress}%` }}
         ></div>
       </div>

@@ -67,6 +67,7 @@ interface Store {
     key: 'recp' | 'emrg' | 'bill' | 'cash' | 'care' | 'labo' | 'oprt' | 'radl',
     value: boolean
   ) => void;
+  saveFeedBack: () => void;
   current: number;
   setCurrent: (current: number) => void;
   Timeline: (
@@ -106,7 +107,7 @@ interface Store {
 
 export const useSurvey = create(
   persist<Store>(
-    (set) => ({
+    (set, get) => ({
       language: 'EN',
       setLang: (language: 'AR' | 'FR' | 'EN') => set({ language }),
       service: {
@@ -123,7 +124,7 @@ export const useSurvey = create(
         overallRating: 'OK',
       },
       current: 0,
-      Timeline: ['start', 'chousingservices', 'comment', 'thankyou'],
+      Timeline: ['start', 'chousingservices', 'contact', 'comment', 'thankyou'],
       setTimeLine: (Timeline) => set({ Timeline }),
       setCurrent: (current) => set({ current }),
       clearAll: () =>
@@ -152,6 +153,20 @@ export const useSurvey = create(
             service: { ...state.service, [key]: value },
           };
         });
+      },
+      saveFeedBack: () => {
+        const { clearAll, setCurrent, query, current } = get();
+        setCurrent(current + 1);
+
+        console.log('Feedback Saved');
+        setTimeout(() => {
+          fetch('/api/feedback', {
+            method: 'POST',
+            body: JSON.stringify({ query }),
+          });
+
+          clearAll();
+        }, 2000);
       },
     }),
     {
