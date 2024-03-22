@@ -11,8 +11,9 @@ function Comment() {
         rows={6}
         className='p-2 border rounded-md resize-none bg-gray-50'
         placeholder={
-          language === 'EN' || language === 'FR'
-            ? 'Please leave your comment here'
+          language === 'EN' ?'Please leave your comment here':
+          language === 'FR'
+            ? 'Veuillez laisser votre commentaire ici.'
             : 'الرجاء ترك تعليقك هنا'
         }
         onChange={(e) => {
@@ -26,7 +27,15 @@ function Comment() {
         className=' bg-blue-500 shadow-lg rounded-md text-white  px-6 py-2'
         onClick={() => saveFeedBack()}
       >
-        Next
+       {
+  language === "EN" && <> Next </>
+}
+{
+  language === "FR" && <>Suivant</>
+}
+{
+  language === "AR" && <> التالي</>
+}
       </button>
     </section>
   );

@@ -19,3 +19,4 @@ export function Sad(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+

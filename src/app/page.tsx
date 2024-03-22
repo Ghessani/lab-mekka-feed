@@ -66,132 +66,132 @@ export default function Home({
             {Timeline[current] === 'start' && (
               <>
                 {language === 'EN'
-                  ? 'what is your overall rating?'
+                  ? 'How satisfied are you with your experience today ?'
                   : language === 'FR'
-                  ? 'Quelle est votre note globale?'
+                  ? 'Êtes-vous satisfait de votre expérience aujourd\'hui ?'
                   : language === 'AR'
-                  ? 'ما هو تقييمك العام؟'
+                  ? 'ما مدى رضاك عن تجربتك اليوم ؟'
                   : ''}
               </>
             )}
             {Timeline[current] === 'chousingservices' && (
               <>
                 {language === 'EN'
-                  ? 'Choosing Services'
+                  ? 'Which department in the hospital would you like to provide us with feedback on ?'
                   : language === 'FR'
-                  ? 'Choisir des services'
+                  ? 'Pour quel service de l\'établissement hospitalier souhaitez-vous nous fournir des commentaires ?'
                   : language === 'AR'
-                  ? 'اختيار الخدمات'
+                  ? 'أي قسم في المستشفى تود أن تقدم لنا ملاحظات حوله ؟'
                   : ''}
               </>
             )}
             {Timeline[current] === 'comment' && (
               <>
                 {language === 'EN'
-                  ? 'Comment'
+                  ? ' Do you still have something on your mind ?<br />Your personal data will be processed according to our privacy policy.'
                   : language === 'FR'
-                  ? 'Commentaire'
+                  ? 'Souhaiteriez-vous exprimer d\'autres pensées ou préoccupations à ce sujet ? \n '
                   : language === 'AR'
-                  ? 'تعليق'
+                  ? '\n هل ترغب في التعبير عن أفكار أو مخاوف أخرى بشأن هذا الموضوع؟'
                   : ''}
               </>
             )}
             {Timeline[current] === 'contact' && (
               <>
                 {language === 'EN'
-                  ? 'Contact'
+                  ? 'Would you like us to contact you for further information or assistance ? ' 
                   : language === 'FR'
-                  ? 'Contact'
+                  ? 'Souhaitez-vous que nous vous contactions pour plus d\'informations ou d\'assistance ?'
                   : language === 'AR'
-                  ? 'اتصل'
+                  ? 'هل تود أن نتواصل معك للحصول على مزيد من المعلومات أو المساعدة؟'
                   : ''}
               </>
             )}
             {Timeline[current] === 'bill' && (
               <>
                 {language === 'EN'
-                  ? 'Billing'
+                  ? 'How satisfied were you with your experience in the Billing ?'
                   : language === 'FR'
-                  ? 'Facturation'
+                  ? 'À quel point étiez-vous satisfait de votre expérience dans la facturation ?'
                   : language === 'AR'
-                  ? 'فواتير'
+                  ? 'كم كنت راضياً عن تجربتك في الفوترة ؟' 
                   : ''}
               </>
             )}
             {Timeline[current] === 'care' && (
               <>
                 {language === 'EN'
-                  ? 'Care'
+                  ? 'How satisfied were you with your experience in the Care ?'
                   : language === 'FR'
-                  ? 'Soins'
+                  ? 'À quel point étiez-vous satisfait de votre expérience dans le département des soins ?'
                   : language === 'AR'
-                  ? 'رعاية'
+                  ? 'كم كنت راضيًا عن تجربتك في قسم الرعاية ؟'
                   : ''}
               </>
             )}
             {Timeline[current] === 'cash' && (
               <>
                 {language === 'EN'
-                  ? 'Cash'
+                  ? 'How satisfied were you with your experience in the Cashier ?'
                   : language === 'FR'
-                  ? 'Argent'
+                  ? 'À quel point étiez-vous satisfait de votre expérience au niveau de la caisse ?'
                   : language === 'AR'
-                  ? 'نقد'
+                  ? ' كم كنت راضيًا عن تجربتك في الصراف ؟ '
                   : ''}
               </>
             )}
             {Timeline[current] === 'emrg' && (
               <>
                 {language === 'EN'
-                  ? 'Emergency'
+                  ? 'How satisfied were you with your experience in the Emergency departement ?'
                   : language === 'FR'
-                  ? 'Urgence'
+                  ? 'À quel point étiez-vous satisfait de votre expérience dans le service des urgences ?'
                   : language === 'AR'
-                  ? 'طوارئ'
+                  ? ' كم كنت راضيًا عن تجربتك في قسم الطوارئ ؟' 
                   : ''}
               </>
             )}
             {Timeline[current] === 'labo' && (
               <>
                 {language === 'EN'
-                  ? 'Laboratory'
+                  ? 'How satisfied were you with your experience in the Laboratory ?'
                   : language === 'FR'
-                  ? 'Laboratoire'
+                  ? 'À quel point étiez-vous satisfait de votre expérience au laboratoire ?'
                   : language === 'AR'
-                  ? 'مختبر'
+                  ? 'كم كنت راضيًا عن تجربتك في المختبر ؟'
                   : ''}
               </>
             )}
             {Timeline[current] === 'oprt' && (
               <>
                 {language === 'EN'
-                  ? 'Operation'
+                  ? 'How satisfied were you with your experience in the Operating departemet ?'
                   : language === 'FR'
-                  ? 'Opération'
+                  ? 'À quel point étiez-vous satisfait de votre expérience dans le service de chirurgie ?'
                   : language === 'AR'
-                  ? 'عملية'
+                  ? 'كم كنت راضيًا عن تجربتك في قسم العمليات ؟' 
                   : ''}
               </>
             )}
             {Timeline[current] === 'radl' && (
               <>
                 {language === 'EN'
-                  ? 'Radiology'
+                  ? 'How satisfied were you with your experience in the Radiology ?'
                   : language === 'FR'
-                  ? 'Radiologie'
+                  ? 'À quel point étiez-vous satisfait de votre expérience en radiologie ?'
                   : language === 'AR'
-                  ? 'الأشعة'
+                  ? ' كم كنت راضيًا عن تجربتك في التصوير الطبي ؟ '
                   : ''}
               </>
             )}
             {Timeline[current] === 'recp' && (
               <>
                 {language === 'EN'
-                  ? 'Reception'
+                  ? 'How satisfied were you with your experience in the Reception ?'
                   : language === 'FR'
-                  ? 'Réception'
+                  ? 'À quel point étiez-vous satisfait de votre expérience à l\'accueil ?'
                   : language === 'AR'
-                  ? 'استقبال'
+                  ? '  كم كنت راضيًا عن تجربتك في الاستقبال؟'
                   : ''}
               </>
             )}
@@ -224,7 +224,16 @@ export default function Home({
               className=' bg-red-400 hover:bg-red-500 text-white rounded-md p-2 mx-10 my-6'
               onClick={() => clearAll()}
             >
-              Restart the Survey
+               {
+  language === "EN" && <>Restart the Survey</>
+}
+{
+  language === "FR" && <>Redémarrer le Feed </>
+}
+{
+  language === "AR" && <>إعادة تشغيل الاستطلاع</>
+}
+             
             </motion.button>
           )}
         </footer>
@@ -257,7 +266,17 @@ function Progress({ progress }: { progress: number }) {
           : 'اَلْعَرَبِيَّةُ'}
       </div>
       <div className=' flex justify-between gap-2'>
-        <p>Progress</p>
+        <p>
+        {
+  language === "EN" && <>Progress</>
+}
+{
+  language === "FR" && <>Progrès </>
+}
+{
+  language === "AR" && <>تقدم</>
+}
+</p>
         <div>{progress}%</div>
       </div>
 

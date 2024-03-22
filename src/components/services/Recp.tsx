@@ -8,7 +8,7 @@ import { useSurvey } from '@/lib/useSurvey';
 import { motion } from 'framer-motion';
 
 function Recp() {
-  const { setCurrent, current, query, setQuerry } = useSurvey();
+  const { setCurrent, current,language, query, setQuerry } = useSurvey();
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -40,7 +40,15 @@ function Recp() {
           <VerySad width={90} height={90} />
         </motion.button>
         <p className='text-center'>
-          ABSOLUMENT <br /> DÉSATISFAIT
+        {
+  language === "EN" && <> Absolutely <br /> disatisfied </>
+}
+{
+  language === "FR" && <>Absolument <br />  insatisfait</>
+}
+{
+  language === "AR" && <>غير راضٍ<br /> تمامًا</>
+}
         </p>
       </motion.div>
       <motion.button
@@ -110,7 +118,15 @@ function Recp() {
           <VeryHappy width={90} height={90} />
         </button>
         <p className='text-center'>
-          Absolutely <br /> satisfied
+        {
+  language === "EN" && <> Absolutely <br /> satisfied </>
+}
+{
+  language === "FR" && <>Absolument <br />  satisfait</>
+}
+{
+  language === "AR" && <>  راضٍ<br />  تمامًا</>
+}
         </p>
       </motion.div>
     </motion.div>

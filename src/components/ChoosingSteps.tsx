@@ -9,46 +9,83 @@ import { useSurvey } from '@/lib/useSurvey';
 import getKeysWithTrueValues, { Keys } from '@/app/utils/array';
 
 interface ServiceType {
-  name: string;
+  name: {
+    FR :  string,
+    EN : string
+    AR : string
+  };
   id: 'recp' | 'emrg' | 'bill' | 'cash' | 'care' | 'labo' | 'oprt' | 'radl';
 }
 
 const services: ServiceType[] = [
   {
-    name: 'reception',
+    name: {
+      FR :  "Réception ",
+      EN : "Reception ",
+      AR : "استقبال",
+    },
+    
     id: 'recp',
   },
   {
-    name: 'emergency',
+    name: {
+      FR :  "Urgence",
+      EN : "Emergency",
+      AR : "طوارئ",
+    },
     id: 'emrg',
   },
   {
-    name: 'billing',
+    name: {
+      FR :  "Facturation",
+      EN : "Billing",
+      AR : "الفوترة",
+    },
     id: 'bill',
   },
   {
-    name: 'cashier',
+    name: {
+      FR :  "Caisse",
+      EN : "Cashier",
+      AR : "الصندوق",
+    },
     id: 'cash',
   },
   {
-    name: 'care',
+    name:  {
+      FR :  "Soin",
+      EN : "care",
+      AR : "الرعاية",
+    },
     id: 'care',
   },
   {
-    name: 'laboratory',
+    name: {
+      FR :  "Laboratoire",
+      EN : "Laboratory",
+      AR : "المختبر",
+    },
     id: 'labo',
   },
   {
-    name: 'operating',
+    name: {
+      FR :  "Chirurgie",
+      EN : "Surgery",
+      AR : "العمليات",
+    },
     id: 'oprt',
   },
   {
-    name: 'radiology',
+    name: {
+      FR :  "Radiologie",
+      EN : "Radiology",
+      AR : "التصوير الطبي",
+    },
     id: 'radl',
   },
 ];
 function ChoosingSteps() {
-  const { setCurrent, setTimeLine, setService, service } = useSurvey();
+  const { setCurrent, setTimeLine, setService, service ,language} = useSurvey();
   const [checkedServices, setCheckedServices] = React.useState(0);
 
   useEffect(() => {
@@ -80,7 +117,14 @@ function ChoosingSteps() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className='pb-6 text-red-500'
         >
-          You can only choose 3 services
+          {
+            language === 'EN' ? 
+            "You can only choose up to three services." :
+            language === 'FR' ? 
+            "Vous ne pouvez choisir que jusqu'à trois services." :
+            language === 'AR' ? 
+            "يمكنك اختيار ما يصل إلى ثلاث خدمات فقط" :""
+          }
         </motion.p>
       )}
       <motion.div
@@ -111,7 +155,9 @@ function ChoosingSteps() {
                   console.log(service);
                 }}
               />
-              {srvc.name}
+              {language==="AR" ? srvc.name.AR :
+              language==="FR" ? srvc.name.FR : 
+              language==="EN" ? srvc.name.EN : ""} 
             </label>
           );
         })}
@@ -126,7 +172,15 @@ function ChoosingSteps() {
           onClick={handleNext}
           whileTap={{ scale: 0.8 }}
         >
-          Next
+          {
+  language === "EN" && <> Next </>
+}
+{
+  language === "FR" && <>Suivant</>
+}
+{
+  language === "AR" && <> التالي</>
+}
         </motion.button>
       )}
     </div>
