@@ -50,6 +50,7 @@ function ThankYou() {
 
         </p>
       </motion.p>
+      
       <button onClick={() => clearAll()}>
       {
   language === "EN" && <> Restart </>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Happy } from '@/components/icones/happy';
-import { Normal } from '@/components/icones/normal';
 import { Sad } from '@/components/icones/sad';
 import { VeryHappy } from '@/components/icones/very-happy';
 import { VerySad } from '@/components/icones/very-sad';
@@ -37,7 +36,7 @@ function Bill() {
             setCurrent(current + 1);
           }}
         >
-          <VerySad width={90} height={90} />
+          <VerySad width={200} height={200} />
         </motion.button>
         <p className='text-center'>
         {
@@ -65,7 +64,7 @@ function Bill() {
           setCurrent(current + 1);
         }}
       >
-        <Sad width={90} height={90} />
+        <Sad width={200} height={200} />
       </motion.button>
       <motion.button
         initial={{ opacity: 0 }}
@@ -81,7 +80,7 @@ function Bill() {
           setCurrent(current + 1);
         }}
       >
-        <Normal width={90} height={90} />
+        
       </motion.button>
       <motion.button
         initial={{ opacity: 0 }}
@@ -97,7 +96,7 @@ function Bill() {
           setCurrent(current + 1);
         }}
       >
-        <Happy width={90} height={90} />
+        <Happy width={200} height={200} />
       </motion.button>
       <motion.div
         initial={{ opacity: 0 }}
@@ -115,7 +114,7 @@ function Bill() {
             setCurrent(current + 1);
           }}
         >
-          <VeryHappy width={90} height={90} />
+          <VeryHappy width={200} height={200} />
         </button>
         <p className='text-center'>
         {

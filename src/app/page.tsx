@@ -3,7 +3,7 @@ import Start from '@/components/Start';
 import LanguageSwitcher from '@/components/switch-language';
 import { useSurvey } from '@/lib/useSurvey';
 import { Happy } from '@/components/icones/happy';
-import { Normal } from '@/components/icones/normal';
+
 import { Sad } from '@/components/icones/sad';
 import { VeryHappy } from '@/components/icones/very-happy';
 import { VerySad } from '@/components/icones/very-sad';

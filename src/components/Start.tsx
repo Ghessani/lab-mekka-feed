@@ -1,6 +1,5 @@
 import React from 'react';
 import { Happy } from '@/components/icones/happy';
-import { Normal } from '@/components/icones/normal';
 import { Sad } from '@/components/icones/sad';
 import { VeryHappy } from '@/components/icones/very-happy';
 import { VerySad } from '@/components/icones/very-sad';
@@ -18,7 +17,7 @@ function Start() {
       className='flex my-auto gap-10 items-center  '
     >
       <motion.div
-        className='flex flex-col gap-4'
+        className='flex flex-col gap-4 items-center '
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         whileTap={{ scale: 0.8 }}
@@ -34,7 +33,7 @@ function Start() {
             setCurrent(1);
           }}
         >
-          <VerySad width={90} height={90} />
+          <VerySad width={200} height={200} />
         </motion.button>
         <p className='text-center'>
        
@@ -63,7 +62,7 @@ function Start() {
           setCurrent(1);
         }}
       >
-        <Sad width={90} height={90} />
+        <Sad width={200} height={200}  />
       </motion.button>
       <motion.button
         initial={{ opacity: 0 }}
@@ -76,7 +75,6 @@ function Start() {
           setCurrent(1);
         }}
       >
-        <Normal width={90} height={90} />
       </motion.button>
       <motion.button
         initial={{ opacity: 0 }}
@@ -89,7 +87,7 @@ function Start() {
           setCurrent(1);
         }}
       >
-        <Happy width={90} height={90} />
+        <Happy width={200} height={200} />
       </motion.button>
       <motion.div
         initial={{ opacity: 0 }}
@@ -104,7 +102,7 @@ function Start() {
             setCurrent(1);
           }}
         >
-          <VeryHappy width={90} height={90} />
+          <VeryHappy width={200} height={200} />
         </button>
         <p className='text-center'>
         {
