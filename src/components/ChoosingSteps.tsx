@@ -1,6 +1,6 @@
 import React, { ChangeEvent, use, useEffect } from 'react';
 import { Happy } from '@/components/icones/happy';
-import { Normal } from '@/components/icones/normal';
+
 import { Sad } from '@/components/icones/sad';
 import { VeryHappy } from '@/components/icones/very-happy';
 import { VerySad } from '@/components/icones/very-sad';
